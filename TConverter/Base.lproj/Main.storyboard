@@ -1,24 +1,232 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhV-eW-ZBg">
+                                <rect key="frame" x="83" y="398" width="248" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="248" id="msI-ET-VVZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dIL-xX-ttk">
+                                <rect key="frame" x="83" y="500" width="248" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="248" id="V0A-uT-4dH"/>
+                                    <constraint firstAttribute="width" constant="248" id="YmA-IH-Yfh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbz-ua-rXH">
+                                <rect key="frame" x="87" y="722" width="240" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="GmH-iL-ddT"/>
+                                    <constraint firstAttribute="height" constant="85" id="sbS-XN-O7q"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="CHANGE CURRENCY">
+                                            <attributes>
+                                                <font key="NSFont" size="21" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="changeCurrencyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ojP-tX-tzC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RUB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sM-W7-v4M">
+                                <rect key="frame" x="177.5" y="456" width="59" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgO-Ph-qga">
+                                <rect key="frame" x="178.5" y="354" width="57" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AE7-aK-Iqb">
+                                <rect key="frame" x="87" y="354.5" width="34" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="Xsp-KB-q1o"/>
+                                    <constraint firstAttribute="height" constant="34" id="q14-Cb-NiT"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xm3-vp-37i">
+                                <rect key="frame" x="87" y="456.5" width="34" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="jFP-T6-pH7"/>
+                                    <constraint firstAttribute="width" constant="34" id="zlB-Zs-cOH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Аfter selecting the currency, start filling in the field and the interface will update automatically" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qg-Ym-hOa">
+                                <rect key="frame" x="49.5" y="232" width="315" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="315" id="k0X-jT-EYl"/>
+                                    <constraint firstAttribute="height" constant="68" id="mvP-zR-Qx1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JgO-Ph-qga" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0r9-r5-RIH"/>
+                            <constraint firstItem="AE7-aK-Iqb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="310" id="2KI-Q4-bEM"/>
+                            <constraint firstItem="Xm3-vp-37i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="412" id="2fa-v9-0Tb"/>
+                            <constraint firstItem="dIL-xX-ttk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="456" id="EHG-J8-pBj"/>
+                            <constraint firstItem="dIL-xX-ttk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Gds-XX-TQP"/>
+                            <constraint firstItem="hhV-eW-ZBg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LHP-AR-1Xs"/>
+                            <constraint firstItem="Xm3-vp-37i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Lg5-An-BCp"/>
+                            <constraint firstItem="6Qg-Ym-hOa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="R2C-ac-9ef"/>
+                            <constraint firstItem="7sM-W7-v4M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="412" id="Yqb-qE-4KD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xbz-ua-rXH" secondAttribute="bottom" constant="55" id="bxE-o4-wYc"/>
+                            <constraint firstItem="Xbz-ua-rXH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dRL-ej-VtH"/>
+                            <constraint firstItem="7sM-W7-v4M" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="e5B-1z-Fxy"/>
+                            <constraint firstItem="6Qg-Ym-hOa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="188" id="ijW-bI-PCE"/>
+                            <constraint firstItem="AE7-aK-Iqb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="pI1-cF-zN9"/>
+                            <constraint firstItem="hhV-eW-ZBg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="354" id="qAu-dw-dxq"/>
+                            <constraint firstItem="JgO-Ph-qga" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="310" id="zqq-tW-x26"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firsrIW" destination="AE7-aK-Iqb" id="fXH-Iz-kBK"/>
+                        <outlet property="firstCurrencyLabel" destination="JgO-Ph-qga" id="VxT-f3-hZc"/>
+                        <outlet property="firstTField" destination="hhV-eW-ZBg" id="YaQ-K6-lRk"/>
+                        <outlet property="secondCurrencyLabel" destination="7sM-W7-v4M" id="I1D-CX-yxm"/>
+                        <outlet property="secondIW" destination="Xm3-vp-37i" id="J3y-Ml-qww"/>
+                        <outlet property="secondTField" destination="dIL-xX-ttk" id="c4K-gl-SVx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="123.88392857142857"/>
+        </scene>
+        <!--Change CurrencyVC-->
+        <scene sceneID="tIe-2n-vPl">
+            <objects>
+                <viewController storyboardIdentifier="changeCurrencyVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gMV-Pb-2MW" customClass="ChangeCurrencyVC" customModule="TConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TlK-fM-0wo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVX-Bw-UkQ">
+                                <rect key="frame" x="20" y="44" width="286" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irC-om-EFL">
+                                <rect key="frame" x="68" y="119" width="279" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="F: BYN         TO: EUR">
+                                            <attributes>
+                                                <font key="NSFont" size="25" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="bynEurButton:" destination="gMV-Pb-2MW" eventType="touchUpInside" id="qhk-tX-dTP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flm-Ix-A7N">
+                                <rect key="frame" x="68" y="195" width="279" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="F: EUR        TO: BYN">
+                                            <attributes>
+                                                <font key="NSFont" size="25" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="eurBynButton:" destination="gMV-Pb-2MW" eventType="touchUpInside" id="XzC-p4-neJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piS-af-kfo">
+                                <rect key="frame" x="68" y="271" width="279" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="F: RUB        TO: EUR">
+                                            <attributes>
+                                                <font key="NSFont" size="25" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="rubEurButton:" destination="gMV-Pb-2MW" eventType="touchUpInside" id="fH8-Qo-A0D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kw-VP-mJA">
+                                <rect key="frame" x="68" y="349" width="279" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="F: EUR        TO: RUB">
+                                            <attributes>
+                                                <font key="NSFont" size="25" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="eurRubButton:" destination="gMV-Pb-2MW" eventType="touchUpInside" id="Jwt-fE-tBY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ulx-zy-uel"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c3H-kd-rcw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902.89855072463774" y="123.88392857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
