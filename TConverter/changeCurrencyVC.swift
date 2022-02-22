@@ -10,14 +10,12 @@ import UIKit
 
 var typeGlobal: Int = 0 // sorry
 
+//MARK: - ChangeCurrencyVC
 class ChangeCurrencyVC: UIViewController{
-    
-    //weak var delegateForType: CurrencyTypeDelegate?
     
     @IBAction func bynEurButton(_ sender: Any) {
       typeGlobal = 1
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func eurBynButton(_ sender: Any) {
@@ -38,11 +36,10 @@ class ChangeCurrencyVC: UIViewController{
     
     
 
-    
+    //MARK: - VDL
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
 
 

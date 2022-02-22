@@ -4,33 +4,27 @@
 //
 //  Created by Vladislav Tuleiko on 17.02.22.
 //
-
+// Tested on iphone 12mini
 import UIKit
 
-
+//MARK: - ViewController
 class ViewController: UIViewController {
     
     @IBOutlet weak var getDataBtn: UIButton!
 
-    @IBAction func getData(_ sender: Any) {
-        
-    }
     @IBOutlet weak var firstCurrencyLabel: UILabel!
     
     @IBOutlet weak var secondCurrencyLabel: UILabel!
-    
     
     @IBOutlet weak var firsrIW: UIImageView!
     
     @IBOutlet weak var secondIW: UIImageView!
     
-
     @IBOutlet weak var firstTField: UITextField!
-    
     
     @IBOutlet weak var secondTField: UITextField!
     
-    
+    //MARK: - Making amazing view
     @IBAction func changeCurrencyButton(_ sender: Any) {
         print(firstTField.text)
         if let detailedCardView = changeCurrencyVC.sheetPresentationController{
@@ -43,28 +37,37 @@ class ViewController: UIViewController {
     }
     
     private var userDefault = Currency()
-    
-    
     let net = Networking()
     let del = ChangeCurrencyVC()
-   
     var changeCurrencyVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "changeCurrencyVC")
     
+    //MARK: - VDL
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         net.networking()
         firstTField.delegate = self
-        net.delegateForCurrency = self
+        net.delegateFor = self
         textFieldDidChangeSelection(firstTField)
-        //firstTField.keyboardType =
     }
-    
-
-
-
 }
 
+//MARK: - Converter ext
+extension ViewController {
+    
+    func convertCurrency(value: Double, type1: Double, type2: Double, label1: String, label2: String, image1: UIImage, image2: UIImage) {
+       
+        DispatchQueue.main.async {
+            self.firstCurrencyLabel.text = label1
+            self.secondCurrencyLabel.text = label2
+            self.firsrIW.image = image1
+            self.secondIW.image = image2
+            let result: Double = value * type2 / type1
+            self.secondTField.text = String(format: "%.2f" , result)
+        }
+    }
+}
+
+//MARK: - UITextFieldDelegate ext
 extension ViewController: UITextFieldDelegate{
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -89,31 +92,23 @@ extension ViewController: UITextFieldDelegate{
             
             convertCurrency(value: t ?? 1, type1: userDefault.rates.BYN, type2: Double(userDefault.rates.EUR), label1: "BYN", label2: "EUR", image1: UIImage(named: "belarus")!, image2: UIImage(named: "european-union")!)
         }
-        
-        
-            
-    }
-    
-}
-
-extension ViewController {
-    
-    func convertCurrency(value: Double, type1: Double, type2: Double, label1: String, label2: String, image1: UIImage, image2: UIImage) {
-       
-        DispatchQueue.main.async {
-            self.firstCurrencyLabel.text = label1
-            self.secondCurrencyLabel.text = label2
-            self.firsrIW.image = image1
-            self.secondIW.image = image2
-            let result: Double = value * type2 / type1
-            self.secondTField.text = String(result)
-        }
     }
 }
 
-
-
+//MARK: - Data/AlertDelegate ext
 extension ViewController: NetworkingDelegate {
+    func alertDelegate(errorDescription: String) {
+        DispatchQueue.main.async {
+            let alertVC = UIAlertController(title: "Damn problems...", message: errorDescription, preferredStyle: UIAlertController.Style.alert)
+            alertVC.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.destructive, handler: nil))
+            alertVC.addAction(UIAlertAction(title: "Settings", style:
+            UIAlertAction.Style.cancel, handler: { action in
+                
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+            }))
+            self.present(alertVC, animated: true, completion: nil)
+    }
+}
     
     func currencyDelegate(_: Networking, with currencyData: Currency) {
         self.userDefault = currencyData
